@@ -4,11 +4,13 @@ import "./styles/index.css";
 import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import reducer from "./reducers/reducer";
+import { combineReducers, createStore } from "redux";
+import reducer from "./containers/reducer";
 
+const rootReducer = combineReducers({
+  trelloapp: reducer,
+});
 const store = createStore(reducer);
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

@@ -1,10 +1,8 @@
 import React from "react";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import "../styles/Col.css";
-import { connect } from "react-redux";
 
-function Col(props) {
-  const { id, name, tasks } = props.columns;
+function Col({ id, name, tasks }) {
   return (
     <Droppable droppableId={`droppable-${id}`} type="PERSON">
       {(provided, snapshot) => (
@@ -41,10 +39,4 @@ function Col(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    columns: state.columns,
-  };
-};
-
-export default (mapStateToProps)(Col);
+export default Col;
